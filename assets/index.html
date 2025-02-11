@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Advisor Chatbot</title>
+    <script>
+        async function sendQuery() {
+            const userQuery = document.getElementById('userQuery').value;
+            const response = await fetch('/chatbot_api', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query: userQuery }),
+            });
+            const data = await response.json();
+            document.getElementById('response').innerText = data.response;
+        }
+    </script>
+</head>
+<body>
+    <h1>Financial Advisor Chatbot</h1>
+    <input type="text" id="userQuery" placeholder="Ask a financial question">
+    <button onclick="sendQuery()">Send</button>
+    <p id="response"></p>
+</body>
+</html>
