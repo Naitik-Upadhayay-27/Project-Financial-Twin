@@ -23,3 +23,6 @@ gsap.from(".left-container",{
     opacity:0,
     delay:1
 })
+$(window).on('beforeunload', function() {
+    $(window).scrollTop(0);
+});
