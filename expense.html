@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="expense.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <video src="./assets/bacvid.mp4" class="vid" autoplay muted loop></video>
+      <div class="nav">
+        <div class="head">
+          <img src="./assets/pixsdd-removebg-preview.png" />
+          <h1>Finance Twin</h1>
+        </div>
+        <div class="menu">
+          <a href="./index.html">Home</a>
+          <a href="index.html">Features</a>
+          <a href="./index.html">About</a>
+          <a href="./index.html">Contact</a>
+        </div>
+      </div>
+      <h1 class="head">Expense Tracker</h1>
+      <div class="marque">
+        <h2>Track it, control it, conquer it!&nbsp;</h2>
+        <h2>Track it, control it, conquer it!&nbsp;</h2>
+        <h2>Track it, control it, conquer it!&nbsp;</h2>
+        <h2>Track it, control it, conquer it!&nbsp;</h2>
+      </div>
+      <!-- Form to add new expense -->
+      <div class="container">
+        <div class="subcont">
+          <form method="POST" class="form">
+            <h3>Description:</h3>
+            <input type="text" placeholder="Add Description" />
+            <h3>Amount:</h3>
+            <input type="number" placeholder="Add Amount" />
+            <h3>Date:</h3>
+            <input type="date" placeholder="Add Date" />
+            <h3>Category:</h3>
+            <input type="" placeholder="Add Category" />
+            <!-- {% csrf_token %} {{ form.as_p }} -->
+            <button type="submit" class="btn">Add Expense</button>
+          </form>
+          <h2>Expenses</h2>
+
+          <h3 class="total-expenses">Total Expenses: ₹{{ total_expenses }}</h3>
+        </div>
+      </div>
+      <h3 class="footer">&copy;All Rights Reserved by Financial Twin</h3>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="expense.js"></script>
+  </body>
+</html>

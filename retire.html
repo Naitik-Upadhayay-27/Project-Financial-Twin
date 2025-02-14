@@ -3,114 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Income Tax Calculation</title>
+    <title>Retirement Goal Form</title>
     <link rel="stylesheet" href="retire.css" />
     <link
-    href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"
-    rel="stylesheet"
-  />
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="main">
-        <div class="page1">
-            <img src="./assets/king.webp" alt="" class="bac" />
-            <div class="nav">
-              <div class="head">
-                <img src="./assets/pixsdd-removebg-preview.png" />
-                <h1>Finance Twin</h1>
-              </div>
-              <div class="menu">
-                <a href="./index.html">Home</a>
-                <a href="">Features</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-              </div>
-            </div>
-            <h1 class="head">Ai powered - Income tax predictor</h1>
-            <div class="marque">
-              <h2>Predict your income tax.&nbsp;</h2>
-              <h2>Predict your income tax.&nbsp;</h2>
-              <h2>Predict your income tax.&nbsp;</h2>
-              <h2>Predict your income tax.&nbsp;</h2>
-            </div>
-            <form method="POST" action="{% url 'tax_calculation' %}" class="form1">
-              <div class="cont">
-                <div class="bx">
-                  <!-- {% csrf_token %} -->
-                  <label for="income">Income (INR):</label>
-                  <input type="text" id="income" name="income" required /><br /><br />
-                </div>
-                <div class="bx">
-                  <label for="section_80c">Section 80C Investments (INR):</label>
-                  <input
-                    type="text"
-                    id="section_80c"
-                    name="section_80c"
-                  /><br /><br />
-                </div>
-                <div class="bx">
-                  <label for="section_80d"
-                    >Section 80D (Health Insurance Premiums - INR):</label
-                  >
-                  <input
-                    type="text"
-                    id="section_80d"
-                    name="section_80d"
-                  /><br /><br />
-                </div>
-                <div class="bx">
-                  <label for="hra">House Rent Allowance (HRA - INR):</label>
-                  <input type="text" id="hra" name="hra" /><br /><br />
-                </div>
-                <div class="bx">
-                  <label for="age">Age:</label>
-                  <input
-                    type="number"
-                    id="age"
-                    name="age"
-                    min="18"
-                    required
-                  /><br /><br />
-                </div>
-                <div class="bx">
-                  <label for="dependents">Number of Dependents:</label>
-                  <input
-                    type="number"
-                    id="dependents"
-                    name="dependents"
-                    min="0"
-                    value="0"
-                  /><br /><br />
-                  <button type="submit">Calculate Tax</button>
-                </div>
-                <!-- {% if income %} -->
-                <div class="results">
-                  <h2>Results</h2>
-                  <p><strong>Your annual income:</strong> ₹{{ income }}</p>
-                  <p><strong>Your total tax liability:</strong> ₹{{ tax }}</p>
-      
-                  <!-- {% if tax_rebate %} -->
-                  <p><strong>Rebate under Section 87A:</strong> ₹{{ tax_rebate }}</p>
-                  <p><strong>Tax after rebate:</strong> ₹{{ tax }}</p>
-                  <!-- {% endif %} -->
-                </div>
-                <!-- {% endif %} {% if ai_suggestions %} -->
-                <div class="ai-suggestions">
-                  <h2>AI Suggestions for Tax Saving 🔥</h3>
-                  <div class="suggestions">{{ ai_suggestions }}</div>
-                </div>
-              </div>
-            </form>
-          </div>
-          <h3 class="footer">&copy;All Rights Reserved by Financial Twin</h3>
+      <img src="./assets/retire bac.avif" alt="" class="ret" />
+      <div class="nav">
+        <div class="head">
+          <img src="./assets/pixsdd-removebg-preview.png" />
+          <h1>Finance Twin</h1>
         </div>
+        <div class="menu">
+          <a href="./index.html">Home</a>
+          <a href="index.html">Features</a>
+          <a href="./index.html">About</a>
+          <a href="./index.html">Contact</a>
+        </div>
+      </div>
+      <h2 class="head">Retirement Goal Form</h2>
+      <div class="marque">
+        <h2>Set Your Retirement Goal.&nbsp;</h2>
+        <h2>Set Your Retirement Goal.&nbsp;</h2>
+        <h2>Set Your Retirement Goal.&nbsp;</h2>
+        <h2>Set Your Retirement Goal.&nbsp;</h2>
+      </div>
+      <form method="POST" class="form1">
+        <div class="cont">
+          <h3>Target Age:</h3>
+          <input type="number" placeholder="Your Target Age" required />
+          <h3>Current Age:</h3>
+          <input type="number" placeholder="Your Current Age" required />
+          <h3>Monthly Contribution (in INR):</h3>
+          <input type="number" placeholder="Your Contribution" required />
+          <h3>Expected Rate of Return(%):</h3>
+          <input type="text" placeholder="Expected Return" required />
+          <h3>Expected Monthly Retirement Expenses (in INR):</h3>
+          <input type="text" placeholder="Retirement Expeneses" required />
+          <h3>Inflation Rate</h3>
+          <input type="number" placeholder="Rate" required />
+          <!-- {% csrf_token %} {{ form.as_p }} -->
+          <div class="btn">
+            <button type="submit">Calculate</button>
+          </div>
+          <!-- {% if chart_url %} -->
+          <div class="chart">
+            <h3 class="head2">Retirement Savings Over Time</h3>
+            <img
+              src="data:image/png;base64,{{ chart_url }}"
+              alt="Retirement Goal Chart"
+            />
+          </div>
+          <!-- {% endif %} {% if future_value %} -->
+          <div class="results">
+            <h3>Results</h3>
+            <p>
+              <strong>Future Value of Retirement Fund:</strong> ₹{{
+              future_value|floatformat:2 }}
+            </p>
+            <p>
+              <strong>Projected Retirement Expenses:</strong> ₹{{
+              adjusted_expenses|floatformat:2 }}
+            </p>
+          </div>
+          <!-- {% endif %} {% if ai_advice %} -->
+          <div class="ai-advice">
+            <h3>Your Personalized Financial Advice:</h3>
+            <div class="suggestions">Hello There</div>
+          </div>
+        </div>
+      </form>
+      <h3 class="footer">&copy;All Rights Reserved by Financial Twin</h3>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="retire.js"></script>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-  <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-  integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer">
-  </script>
-  <script src="retire.js"></script>
 </html>
