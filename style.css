@@ -1020,15 +1020,15 @@ form{
   }
   .deck{
     position: absolute;
-    top: 0.3%;
+    top: 0;
     right: 0;
     padding: 10vh 1vh;
     display: none;
     flex-direction: column;
     height: 93vh;
     width: 60%;
-    margin-top:5vh;
-    z-index: 99999 !important;
+    margin-top:0vh;
+    z-index: 1;
     background-color: rgba(0, 0, 0, 0.9);
   }
   .deck h2{
