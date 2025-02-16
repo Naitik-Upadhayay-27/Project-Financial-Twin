@@ -138,3 +138,35 @@ function aim () {
     })
 }
 aim()
+function deck() {
+    let cont2=document.querySelector(".cont2")
+    let deck =document.querySelector(".deck")
+    let menu = document.querySelector(".mbmenu")
+    let deckmenu = document.querySelectorAll(".clickme")
+    let a=0;
+    console.log(deckmenu)
+    menu.addEventListener("click", () => {
+        if(a==0){
+            cont2.style.filter = "brightness(10%)"
+            deck.style.filter = "brightness(100%)"
+            deck.style.display="flex"
+            a=1;
+        }
+        else
+        {
+            cont2.style.filter = "brightness(100%)"
+            deck.style.display="none"
+            a=0;
+        }
+    })
+    deckmenu.forEach(e => {
+        e.addEventListener("click", () => {
+            cont2.style.filter = "brightness(100%)"
+            deck.style.display="none";
+            a=0;
+        })
+    });
+}
+deck()
+
+
